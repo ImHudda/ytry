@@ -2,8 +2,16 @@
 
 # dependencies
 /node_modules
+**/node_modules
 /.pnp
 .pnp.*
+
+# cloudflare workers
+**/.wrangler
+.dev.vars
+
+# claude code local state
+.claude/
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

@@ -1,0 +1,29 @@
+name = "abdul-telegram-bot"
+main = "src/index.ts"
+compatibility_date = "2026-04-19"
+compatibility_flags = ["nodejs_compat"]
+
+# Fill in after creating: wrangler kv namespace create CONVO
+[[kv_namespaces]]
+binding = "CONVO"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[vars]
+# Comma-separated list of allowed Telegram user IDs (numeric, from @userinfobot or getUpdates).
+# Messages from anyone else are silently ignored — not even a "not authorized" reply.
+ALLOWED_USER_IDS = ""
+
+# Default model for normal chat. Override per-message with /deepthink.
+CHAT_MODEL = "claude-sonnet-4-6"
+DEEPTHINK_MODEL = "claude-opus-4-7"
+
+# Max conversation turns kept in KV per chat (user + assistant counted separately, so 20 = 10 round-trips)
+MAX_HISTORY_TURNS = "20"
+
+# Secrets set via wrangler (never checked into git):
+#   wrangler secret put TELEGRAM_BOT_TOKEN
+#   wrangler secret put ANTHROPIC_API_KEY
+#   wrangler secret put WEBHOOK_SECRET   # random string, becomes the webhook URL path segment
+
+[observability]
+enabled = true
